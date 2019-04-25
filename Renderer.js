@@ -1,5 +1,5 @@
-class Renderer{
-    renderBoard(board){
+class Renderer {
+    renderBoard(board) {
         $("#container").empty()
         $("#container").css("grid-template-columns", `repeat(${board[0].length},1fr)`)
         for (let i = 0; i < board.length; i++) {
@@ -10,29 +10,44 @@ class Renderer{
             }
         }
     }
-    
-    decideValue(val){
-        if(val == 1){
+
+    decideValue(val) {
+        if (val == 1) {
             return "p1"
-        }else if(val == 2){
+        } else if (val == 2) {
             return "p2"
-        }else if(val == "X"){
+        } else if (val == "X") {
             return "block"
-        }else if(val == "c"){
+        } else if (val == "c") {
             return "coin"
-        }else if(val == "."){
+        } else if (val == ".") {
             return ""
         }
     }
-    
-    renderScore(score){
-        let div = `<div class="score">player 1: ${score["1"]}
-        <br>player 2: ${score["2"]}</div>`
-        $("#container").append(div)
 
+    renderScore(score) {
+        let div = `Score: <br>Player 1: ${score["1"]}
+        <br>Player 2: ${score["2"]}`
+        $("#score").empty().append(div)
     }
 
-    render(goldRush){
+    renderClock(score) {
+        let secs = 10
+        const hi = () => {$("#clock").text() = "hi"}
+        let timer = setInterval(hi, 1000)
+        setTimeout(function () {
+            let message
+            score["1"] > score["2"] ? message = "Player 1 Won!" : null
+            score["2"] > score["1"] ? message = "Player 2 Won!" : null
+            score["1"] == score["2"] ? message = "Draw!" : null
+            $(".box").css("display", "none")
+            $("#message").css("display", "block")
+            $("#message").text() = message
+
+        }, 10000)
+    }
+
+    render(goldRush) {
         this.renderBoard(goldRush.matrix)
         this.renderScore(goldRush.score)
     }

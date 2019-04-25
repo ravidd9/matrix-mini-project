@@ -71,7 +71,6 @@ class GoldRush extends Matrix {
         //     ((direction == "right") && (this.get(coor.y, coor.x + 1) == "c")))
         if(this.getMoveValue(coor, direction) == "c"){
             this.score[player] += 10
-            console.log(this.score)
         }
     }
 

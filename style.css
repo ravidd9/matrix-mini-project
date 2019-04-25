@@ -2,13 +2,23 @@ body {
     margin: 0px;
     font-family: Tahoma;
     font-size: 20px;
+    background-color:rgb(177, 177, 177);
 }
 
 #container {
+    background-color: white;
     display: grid;
     border: 1px solid black;
     margin: 20px;
     height: 80vh;
+}
+
+#message{
+    font-size: 500%;
+    background-color: rgb(194, 194, 90);
+    padding-top: 25%;
+    padding-left: 17%;
+    display: block;
 }
 
 .box {
@@ -43,4 +53,35 @@ body {
     background-color:black;
     height: 100%;
     width: 100%;
+}
+
+#buttom{
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    margin: 20px;
+    border: 2px solid black;
+    justify-items: center;
+    align-items: center;
+    padding: 10px;
+}
+#score{
+
+}
+#start{
+
+}
+input{
+    font-size: 80%;
+    border: 1px solid black;
+    
+}
+button{
+    display: block;
+    width: 100%;
+    font-size: 40px;
+    margin-top: 5px;
+}
+#clock{
+
 }
